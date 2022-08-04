@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:food_app_ga_coding/core/imagePathManagment/imagePath.dart';
 import 'package:food_app_ga_coding/core/utility/Screen_dynamic_size.dart';
 import 'package:food_app_ga_coding/model/cook_model.dart';
+import 'package:food_app_ga_coding/viewmodel/customCard_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 class customCard extends StatelessWidget with ScreenSize{
    customCard({ Key? key, required this.title, required this.description, required this.score, required this.price, required this.image }) : super(key: key);
@@ -10,22 +12,27 @@ class customCard extends StatelessWidget with ScreenSize{
   final String title;
 final String description;
 final String score;
-final double price;
+ double price;
 final Image image;
   @override
   Widget build(BuildContext context) {
     ScreenSize().init(context);
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 14.0),
-      child: Container(
-      height: ScreenSize.dynamicHeight(value: 0.35),
-      width: ScreenSize.dynamicWidth(value: 0.50),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.all(Radius.elliptical(15, 15)),
-      ),
-      child: _cardChilds(title: title,description: description,price: price,score: score,image: image),
-      ),
+    return ChangeNotifierProvider<customCardProvider>(
+      builder: (context, child){
+       return Padding(
+        padding: EdgeInsets.symmetric(vertical: 14.0),
+        child: Container(
+        height: ScreenSize.dynamicHeight(value: 0.35),
+        width: ScreenSize.dynamicWidth(value: 0.50),
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.all(Radius.elliptical(15, 15)),
+        ),
+        child: _cardChilds(title: title,description: description,price: price,score: score,image: image),
+        ),
+      );  
+      },
+      create: (context) => customCardProvider(),
     );
   }
 }
@@ -37,7 +44,7 @@ class _cardChilds extends StatelessWidget {
 final String title;
 final String description;
 final String score;
-final double price;
+ double price;
 final Image image;
   @override
   Widget build(BuildContext context) {

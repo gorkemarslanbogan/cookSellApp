@@ -1,4 +1,3 @@
-import 'imagePath.dart';
 
 enum imageType { png, jpeg }
 
