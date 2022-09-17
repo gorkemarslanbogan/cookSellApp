@@ -9,30 +9,30 @@ class cardBuilderProvider {
         "The Most deliciouss in the summer",
         15.99,
         "4.5",
-        Image.asset(
+        [Image.asset(
           imagePath.toPng("food2"),
           width: 80,
           height: 80,
-        )),
+        )]),
     CookModel(
         "Chicken Menu",
         "The Most deliciouss in the summer",
         12.31,
         "4.4",
-        Image.asset(
+        [Image.asset(
           imagePath.toPng("food3"),
           width: 80,
           height: 80,
-        )),
+        )]),
     CookModel(
         "Mixed Salad",
         "The Most deliciouss in the summer",
         09.99,
         "3.8",
-        Image.asset(
+        [Image.asset(
           imagePath.toPng("food2"),
           width: 80,
           height: 80,
-        )),
+        )]),
   ];
 }

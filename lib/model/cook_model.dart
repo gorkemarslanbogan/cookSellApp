@@ -4,7 +4,7 @@ class CookModel {
  String _name;
  String _description;
  String _puan;
- Image image;
+ List<Image> image;
  double _price;
 
 CookModel(this._name, this._description, this._price, this._puan,this.image);
