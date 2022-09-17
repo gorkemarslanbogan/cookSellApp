@@ -13,7 +13,6 @@ CookModel(this._name, this._description, this._price, this._puan,this.image);
 String get cookName => this._name;
 String get puan => this._puan;
 String get cookDescription => this._description;
-// Image get image => this._image;
 double get price => this._price;
 
 void set chanceName(String name){

@@ -1,18 +1,16 @@
 
 import 'package:flutter/material.dart';
-import 'package:food_app_ga_coding/core/imagePathManagment/imagePath.dart';
 import 'package:food_app_ga_coding/core/utility/Screen_dynamic_size.dart';
-import 'package:food_app_ga_coding/model/cook_model.dart';
 import 'package:food_app_ga_coding/viewmodel/customCard_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 class customCard extends StatelessWidget with ScreenSize{
-   customCard({ Key? key, required this.title, required this.description, required this.score, required this.price, required this.image }) : super(key: key);
+  customCard({ Key? key, required this.title, required this.description, required this.score, required this.price, required this.image }) : super(key: key);
   final color = Colors.cyan.shade900;
   final String title;
-final String description;
-final String score;
- double price;
+  final String description;
+  final String score;
+  double price;
 final Image image;
   @override
   Widget build(BuildContext context) {
@@ -44,7 +42,7 @@ class _cardChilds extends StatelessWidget {
 final String title;
 final String description;
 final String score;
- double price;
+double price;
 final Image image;
   @override
   Widget build(BuildContext context) {

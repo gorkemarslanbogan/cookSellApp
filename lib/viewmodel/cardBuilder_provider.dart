@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_app_ga_coding/core/imagePathManagment/imagePath.dart';
 import 'package:food_app_ga_coding/model/cook_model.dart';
-import 'package:provider/provider.dart';
 
-class cardBuilderProvider with ChangeNotifier {
+class cardBuilderProvider {
   List<CookModel> items = [
     CookModel(
         "Easy Tomato",
@@ -36,12 +35,4 @@ class cardBuilderProvider with ChangeNotifier {
           height: 80,
         )),
   ];
-
-  void updateCookTitle(String title) {
-    items.first.chanceName = title;
-    notifyListeners();
-  }
-  void updatePrice(double newPrice) {
-    items.first.chanceprice = newPrice;
-  }
 }
