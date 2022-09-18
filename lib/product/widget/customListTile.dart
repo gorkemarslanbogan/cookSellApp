@@ -30,7 +30,7 @@ final CookModel cookModel;
     List<Widget> item = [
          Padding(
           padding: const EdgeInsets.only(right: 15.0),
-          child: cookModel.image,
+          child: cookModel.image.first,
         ),
         Column(
            mainAxisAlignment: MainAxisAlignment.center,
@@ -39,7 +39,7 @@ final CookModel cookModel;
             const Spacer(flex: 5,),
             Row(
               children:  [
-              const _dessertTitle(),
+                _dessertTitle(context: context),
                 Padding(
                   padding: EdgeInsets.only(left:MediaQuery.of(context).size.width *0.32),
                   child:  Expanded(child: _price(price: cookModel.price)),
@@ -61,17 +61,13 @@ final CookModel cookModel;
   }
 }
 
-class _dessertTitle extends StatelessWidget {
-  const _dessertTitle({
-    Key? key,
-  }) : super(key: key);
-  final dessert = "Dessert";
-  @override
-  Widget build(BuildContext context) {
-    return Text(dessert,style: Theme.of(context).textTheme.subtitle2?.copyWith(
-      color: Colors.grey
-    ));
-  }
+
+class _dessertTitle extends Text {
+  _dessertTitle({Key? key, required BuildContext context}) : super("Dessert", 
+  style: Theme.of(context).textTheme.subtitle2?.copyWith(
+    color: Colors.grey,
+  ));
+
 }
 
 class _foodImage extends StatelessWidget {
@@ -103,7 +99,7 @@ class _price extends StatelessWidget {
  final double price;
   @override
   Widget build(BuildContext context) {
-    return Text("\$${price}",style: Theme.of(context).textTheme.headline6?.copyWith(
+    return Text("\$$price",style: Theme.of(context).textTheme.headline6?.copyWith(
       color: Colors.amber,
     ),);
   }

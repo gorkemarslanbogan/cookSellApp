@@ -1,32 +1,29 @@
 
 import 'package:flutter/material.dart';
 import 'package:food_app_ga_coding/core/utility/Screen_dynamic_size.dart';
+import 'package:food_app_ga_coding/model/cook_model.dart';
 import 'package:food_app_ga_coding/viewmodel/customCard_viewmodel.dart';
 import 'package:provider/provider.dart';
 
 class customCard extends StatelessWidget with ScreenSize{
-  customCard({ Key? key, required this.title, required this.description, required this.score, required this.price, required this.image }) : super(key: key);
+  customCard({ Key? key, required this.cookModel}) : super(key: key);
   final color = Colors.cyan.shade900;
-  final String title;
-  final String description;
-  final String score;
-  double price;
-final Image image;
+  final CookModel cookModel;
   @override
   Widget build(BuildContext context) {
     ScreenSize().init(context);
     return ChangeNotifierProvider<customCardProvider>(
       builder: (context, child){
        return Padding(
-        padding: EdgeInsets.symmetric(vertical: 14.0),
+        padding: const EdgeInsets.symmetric(vertical: 14.0),
         child: Container(
         height: ScreenSize.dynamicHeight(value: 0.35),
         width: ScreenSize.dynamicWidth(value: 0.50),
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.all(Radius.elliptical(15, 15)),
+          borderRadius: const BorderRadius.all(Radius.elliptical(15, 15)),
         ),
-        child: _cardChilds(title: title,description: description,price: price,score: score,image: image),
+        child: _cardChilds(cookModel: cookModel),
         ),
       );  
       },
@@ -37,13 +34,9 @@ final Image image;
 
 class _cardChilds extends StatelessWidget {
    _cardChilds({
-    Key? key, required this.title, required this.description, required this.score, required this.price, required this.image,
+    Key? key, required this.cookModel,
   }) : super(key: key);
-final String title;
-final String description;
-final String score;
-double price;
-final Image image;
+  final CookModel cookModel;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -54,18 +47,18 @@ final Image image;
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _CardTittleText(title: title),
+              _CardTittleText(title: cookModel.cookName),
               Padding(
                 padding: const EdgeInsets.only(bottom: 15.0, top: 10),
-                child: _cardDescription(description: description),
+                child: _cardDescription(description: cookModel.cookDescription),
               ),
-              _cardStars(score: score),
-              Spacer(),
-              _priceTextWidget(price: price),
+              _cardStars(score: cookModel.puan),
+              const Spacer(),
+              _priceTextWidget(price: cookModel.price),
             ],
           ),
         ),
-       _cookImage(image: image),
+       _cookImage(image: cookModel.image.first),
       ],
     );
   }
@@ -117,7 +110,7 @@ final String score;
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(Icons.star, color: Colors.white,size: 20,),
+        const Icon(Icons.star, color: Colors.white,size: 20,),
         Text("  "+score, style: Theme.of(context).textTheme.subtitle2?.copyWith(
         color: Colors.white,
       ),),

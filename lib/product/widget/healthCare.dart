@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-
-
 class healthCare extends StatelessWidget {
   const healthCare({ Key? key }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -12,9 +9,9 @@ class healthCare extends StatelessWidget {
       child: Container(
         child: Row(
           children: [
-           const _healthStack(),
+            _healthStack(),
            const SizedBox(width: 10),
-           const _healthcareText(),
+            _healthcareText(context: context),
           ],
         ),
         decoration: BoxDecoration(
@@ -28,29 +25,15 @@ class healthCare extends StatelessWidget {
 }
 
 
-
-class _healthcareText extends StatelessWidget {
-  const _healthcareText({
-    Key? key,
-  }) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Text("Verified Healthcare", style: Theme.of(context).textTheme.subtitle2?.copyWith(
+class _healthcareText extends Text {
+   _healthcareText({required BuildContext context}) : super("Verified Healthcare", style: Theme.of(context).textTheme.subtitle2?.copyWith(
           color: Colors.green
-        ),);
-  }
-}
+));}
 
-class _healthStack extends StatelessWidget {
-  const _healthStack({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-      Container(
+class _healthStack extends Stack {
+   _healthStack({Key? key,
+  }) : super(children: [
+     Container(
         height: 20,
         width: 20,
         decoration: const BoxDecoration(
@@ -59,6 +42,6 @@ class _healthStack extends StatelessWidget {
         ),
       ),
       const Positioned.fill(child: Icon(Icons.done, color: Colors.white,size: 16,)),
-    ]);
-  }
+  ]);
+
 }

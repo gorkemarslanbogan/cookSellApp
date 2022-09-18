@@ -3,10 +3,13 @@ import 'package:food_app_ga_coding/core/utility/Screen_dynamic_size.dart';
 import 'package:food_app_ga_coding/product/utility/app_padding.dart';
 import 'package:food_app_ga_coding/product/widget/app-bar-widget.dart';
 import 'package:food_app_ga_coding/product/widget/mainColumnItems.dart';
+import 'package:food_app_ga_coding/viewmodel/cardBuilder_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MultiProvider(providers: const [], builder: (context, child) => mainScreen()));
+  runApp(MultiProvider(providers:  
+  [ChangeNotifierProvider<cardBuilderProvider>(create: (_) => cardBuilderProvider(),)], 
+  builder: (context, child) => mainScreen()));
 }
 
 class mainScreen extends StatelessWidget with ScreenSize {
@@ -34,4 +37,3 @@ class mainScreen extends StatelessWidget with ScreenSize {
                 ))));
   }
 }
-

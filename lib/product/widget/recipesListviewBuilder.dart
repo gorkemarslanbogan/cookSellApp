@@ -14,7 +14,7 @@ class recipesListBuilder extends StatelessWidget {
     return ListView.builder(
           shrinkWrap: true,
           padding: EdgeInsets.zero,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: context.read<cardBuilderProvider>().items.length,
           itemBuilder: ((context, index) {
           CookModel items = context.read<cardBuilderProvider>().items[index];

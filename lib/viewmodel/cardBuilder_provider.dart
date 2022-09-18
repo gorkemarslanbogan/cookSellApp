@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app_ga_coding/core/imagePathManagment/imagePath.dart';
 import 'package:food_app_ga_coding/model/cook_model.dart';
 
-class cardBuilderProvider {
+class cardBuilderProvider extends ChangeNotifier {
   List<CookModel> items = [
     CookModel(
         "Easy Tomato",
@@ -35,4 +35,6 @@ class cardBuilderProvider {
           height: 80,
         )]),
   ];
+
 }
+

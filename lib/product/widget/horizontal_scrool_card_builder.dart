@@ -6,33 +6,23 @@ import 'package:food_app_ga_coding/viewmodel/cardBuilder_provider.dart';
 import 'package:provider/provider.dart';
 
 class cardBuilder extends StatelessWidget {
-  cardBuilder({Key? key}) : super(key: key);
+  const cardBuilder({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ScreenSize().init(context);
+   ScreenSize().init(context);
     return SizedBox(
       height: ScreenSize.dynamicHeight(value: 0.38),
-      child: Consumer<cardBuilderProvider>(
-        builder: ((context, value, child) {
-        return ListView.builder(
-        padding: EdgeInsets.zero,
+      child:  ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: value.items.length,
-        itemBuilder: (BuildContext context, int index) {
-         CookModel items = value.items[index];
-          return Padding(
+        padding: EdgeInsets.zero,
+        itemCount: context.read<cardBuilderProvider>().items.length,
+        itemBuilder: (context,index) {
+          CookModel item = context.read<cardBuilderProvider>().items[index];
+        return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: customCard(
-                title: items.cookName,
-                description: items.cookDescription,
-                price: items.price,
-                score: items.puan,
-                image: items.image),
-          );
-        },
-      );})
-      )
-    );
+            child: customCard(cookModel:item)
+      );}));
+
   }
 }
