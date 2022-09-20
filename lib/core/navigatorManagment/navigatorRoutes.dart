@@ -1,17 +1,18 @@
+import 'package:flutter/cupertino.dart';
+
 import '../../screens/details.dart';
 import '../../screens/main.dart';
 
 
 class NavigatorRoutes {
-  static const paraf = "/";
   final routes = {
-        paraf: (context) =>  mainScreen(),
+        RoutesName.home.withParaf: (context) =>  Home(),
         RoutesName.details.withParaf: (context) => FoodDetails(),
       };
 }
 
 enum RoutesName {
-  details
+  home,details
 }
 
 extension NavigatorRoutesNameExtension on RoutesName {

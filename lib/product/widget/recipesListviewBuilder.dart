@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app_ga_coding/core/navigatorManagment/navigatorRoutes.dart';
 import 'package:food_app_ga_coding/model/cook_model.dart';
 import 'package:food_app_ga_coding/product/widget/customListTile.dart';
 import 'package:food_app_ga_coding/screens/details.dart';
@@ -22,8 +23,7 @@ class recipesListBuilder extends StatelessWidget {
           return Card(
             child: InkWell(
               onTap: (){
-                Navigator.of(context).push(MaterialPageRoute<CookModel>(builder: (context) => 
-                FoodDetails(model: items),settings: RouteSettings(arguments:items)));
+                Navigator.of(context).pushNamed(RoutesName.details.withParaf,arguments: items);
               },
               child: customListTileCard(Cookmodel: items)),
           );

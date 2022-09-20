@@ -13,7 +13,7 @@ final String title;
     return ElevatedButton(
     onPressed: (){}, 
     child: Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 25),
       child: Wrap(
         children: [
           Text(title,style: Theme.of(context).textTheme.subtitle1?.copyWith(
@@ -25,7 +25,7 @@ final String title;
     ),style: OutlinedButton.styleFrom(
       backgroundColor: Colors.teal.shade400,
       padding: EdgeInsets.zero,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
     ),);
   }
 }

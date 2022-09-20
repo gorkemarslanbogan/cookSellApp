@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app_ga_coding/core/utility/Screen_dynamic_size.dart';
 import 'package:food_app_ga_coding/model/cook_model.dart';
-import 'package:food_app_ga_coding/viewmodel/customCard_viewmodel.dart';
+import 'package:food_app_ga_coding/viewmodel/cardBuilder_provider.dart';
 import 'package:provider/provider.dart';
 
 class customCard extends StatelessWidget{
@@ -12,7 +12,7 @@ class customCard extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     ScreenSize().init(context);
-    return ChangeNotifierProvider<customCardProvider>(
+    return ChangeNotifierProvider<cardBuilderProvider>(
       builder: (context, child){
        return Padding(
         padding: const EdgeInsets.symmetric(vertical: 14.0),
@@ -27,7 +27,7 @@ class customCard extends StatelessWidget{
         ),
       );  
       },
-      create: (context) => customCardProvider(),
+      create: (context) => cardBuilderProvider(),
     );
   }
 }

@@ -5,7 +5,6 @@ import 'package:food_app_ga_coding/product/theme/theme.dart';
 import 'package:food_app_ga_coding/product/utility/app_padding.dart';
 import 'package:food_app_ga_coding/product/widget/app-bar-widget.dart';
 import 'package:food_app_ga_coding/product/widget/mainColumnItems.dart';
-import 'package:food_app_ga_coding/screens/details.dart';
 import 'package:food_app_ga_coding/viewmodel/cardBuilder_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -14,20 +13,16 @@ void main() {
     ChangeNotifierProvider<cardBuilderProvider?>(
       create: (_) => cardBuilderProvider(),
     )
-  ], builder: (context, child) => const mainScreen()));
-}
-
-class mainScreen extends StatelessWidget {
-  const mainScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  ], builder: (context, child) => 
+     MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppTheme.light,
+        onUnknownRoute: ((settings) {
+        return MaterialPageRoute(builder: (context) => const Home());
+        }),
+        routes: NavigatorRoutes().routes,
         home: const Home() 
-        );
-  }
+  )));
 }
 
 class Home extends StatelessWidget {
