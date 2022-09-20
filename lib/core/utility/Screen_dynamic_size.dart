@@ -5,7 +5,7 @@ class ScreenSize {
   static double? dynamicsWidth;
   late MediaQueryData _mediaQuery;
 
-   void init(BuildContext context) {
+  void init(BuildContext context) {
     _mediaQuery = MediaQuery.of(context);
     dynamicsHeight = _mediaQuery.size.height;
     dynamicsWidth = _mediaQuery.size.width;

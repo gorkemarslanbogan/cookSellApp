@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_app_ga_coding/core/imagePathManagment/imagePath.dart';
 import 'package:food_app_ga_coding/model/cook_model.dart';
+import 'package:food_app_ga_coding/product/widget/TextWidgets/CookPrice.dart';
+import 'package:food_app_ga_coding/product/widget/TextWidgets/cookNameText.dart';
+import 'package:food_app_ga_coding/product/widget/TextWidgets/greyTittle.dart';
 import 'package:food_app_ga_coding/product/widget/healthCare.dart';
 
 
@@ -28,10 +31,12 @@ final CookModel cookModel;
   @override
   Widget build(BuildContext context) {
     List<Widget> item = [
-         Padding(
-          padding: const EdgeInsets.only(right: 15.0),
-          child: cookModel.image.first,
-        ),
+         Expanded(
+           child: Padding(
+            padding: const EdgeInsets.only(right: 15.0),
+            child: cookModel.image.first,
+                 ),
+         ),
         Column(
            mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,15 +44,15 @@ final CookModel cookModel;
             const Spacer(flex: 5,),
             Row(
               children:  [
-                _dessertTitle(context: context),
+                GreytTitle(context: context,title: "Dessert"),
                 Padding(
                   padding: EdgeInsets.only(left:MediaQuery.of(context).size.width *0.32),
-                  child:  Expanded(child: _price(price: cookModel.price)),
+                  child:   CookPrice(context:context, price: cookModel.price, color: Colors.amber,),
                 )
               ],
             ),
             const Spacer(),
-             _cookName(title: cookModel.cookName),
+             cookName(context: context,title: cookModel.cookName),
             const Spacer(flex: 3,),
             const healthCare(),
             const Spacer(flex: 5,),
@@ -62,13 +67,7 @@ final CookModel cookModel;
 }
 
 
-class _dessertTitle extends Text {
-  _dessertTitle({Key? key, required BuildContext context}) : super("Dessert", 
-  style: Theme.of(context).textTheme.subtitle2?.copyWith(
-    color: Colors.grey,
-  ));
 
-}
 
 class _foodImage extends StatelessWidget {
   const _foodImage({
@@ -81,26 +80,4 @@ class _foodImage extends StatelessWidget {
   }
 }
 
-class _cookName extends StatelessWidget {
-  const _cookName({
-    Key? key, required this.title,
-  }) : super(key: key);
-  final String title;
-  @override
-  Widget build(BuildContext context) {
-    return Text(title,style: Theme.of(context).textTheme.headline6,);
-  }
-}
 
-class _price extends StatelessWidget {
-  const _price({
-    Key? key, required this.price,
-  }) : super(key: key);
- final double price;
-  @override
-  Widget build(BuildContext context) {
-    return Text("\$$price",style: Theme.of(context).textTheme.headline6?.copyWith(
-      color: Colors.amber,
-    ),);
-  }
-}

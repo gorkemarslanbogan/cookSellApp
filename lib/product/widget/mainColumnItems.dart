@@ -12,26 +12,26 @@ class columnItems extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const mainTitle(title: textUtility.mainTittle,),
-        const SizedBox(
+      children: const [
+        mainTitle(title: textUtility.mainTittle,),
+        SizedBox(
           height: 20,
         ),
-        const customTextField(),
-        const SizedBox(
+        customTextField(),
+        SizedBox(
           height: 20,
         ),
-        const textWidget(
+        textWidget(
           title: textUtility.recommend,
         ),
         cardBuilder(),
-        const SizedBox(
+        SizedBox(
           height: 10,
         ),
-        const textWidget(
+        textWidget(
           title: textUtility.recipes,
         ),
-        const recipesListBuilder()
+        recipesListBuilder()
       ],
     );
   }

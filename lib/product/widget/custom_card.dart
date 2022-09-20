@@ -5,7 +5,7 @@ import 'package:food_app_ga_coding/model/cook_model.dart';
 import 'package:food_app_ga_coding/viewmodel/customCard_viewmodel.dart';
 import 'package:provider/provider.dart';
 
-class customCard extends StatelessWidget with ScreenSize{
+class customCard extends StatelessWidget{
   customCard({ Key? key, required this.cookModel}) : super(key: key);
   final color = Colors.cyan.shade900;
   final CookModel cookModel;
@@ -128,8 +128,8 @@ final String description;
   Widget build(BuildContext context) {
     return Text(description, style: Theme.of(context).textTheme.subtitle2?.copyWith(
       color: Colors.white,
-      fontWeight: FontWeight.w400
-    ),);
+      fontWeight: FontWeight.w400,
+    ),maxLines: 2, overflow: TextOverflow.clip,);
   }
 }
 
@@ -137,7 +137,7 @@ class _CardTittleText extends StatelessWidget {
   const _CardTittleText({
     Key? key, required this.title,
   }) : super(key: key);
-final title;
+final String title;
   @override
   Widget build(BuildContext context) {
     return Text(title, style: Theme.of(context).textTheme.headline5?.copyWith(

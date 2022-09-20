@@ -31,8 +31,7 @@ class _healthcareText extends Text {
 ));}
 
 class _healthStack extends Stack {
-   _healthStack({Key? key,
-  }) : super(children: [
+   _healthStack() : super(children: [
      Container(
         height: 20,
         width: 20,
