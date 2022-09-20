@@ -17,7 +17,7 @@ class customCard extends StatelessWidget{
        return Padding(
         padding: const EdgeInsets.symmetric(vertical: 14.0),
         child: Container(
-        height: ScreenSize.dynamicHeight(value: 0.35),
+        height: ScreenSize.dynamicHeight(value: 0.55),
         width: ScreenSize.dynamicWidth(value: 0.50),
         decoration: BoxDecoration(
           color: color,
@@ -42,7 +42,7 @@ class _cardChilds extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 15),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +53,7 @@ class _cardChilds extends StatelessWidget {
                 child: _cardDescription(description: cookModel.cookDescription),
               ),
               _cardStars(score: cookModel.puan),
-              const Spacer(),
+               const Spacer(),
               _priceTextWidget(price: cookModel.price),
             ],
           ),

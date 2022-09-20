@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app_ga_coding/screens/details.dart';
 
 class customTextField extends StatelessWidget  {
    const customTextField({Key? key}) : super(key: key);
@@ -36,7 +37,7 @@ class customTextField extends StatelessWidget  {
                   borderRadius: BorderRadius.all(Radius.elliptical(10,10))),
               backgroundColor: Colors.teal.shade900),
           onPressed: () {},
-          child: const Icon(Icons.format_align_left_sharp)),
+          child: const Icon(Icons.format_align_left_sharp, color: Utility.ColorWhite,)),
     );
   }
 }

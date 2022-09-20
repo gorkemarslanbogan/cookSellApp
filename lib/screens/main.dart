@@ -37,9 +37,6 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     ScreenSize().init(context);
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => FoodDetails()));
-      }, child: Text("Details"),),
             appBar: const appbarWidget(),
             body: SizedBox(
                 height: ScreenSize.dynamicsHeight,
