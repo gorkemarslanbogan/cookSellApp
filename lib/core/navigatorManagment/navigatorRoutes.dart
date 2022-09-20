@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 import '../../screens/details.dart';
-import '../../screens/main.dart';
+import '../../main.dart';
 
 
 class NavigatorRoutes {

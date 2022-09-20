@@ -7,7 +7,7 @@ import 'package:food_app_ga_coding/product/widget/TextWidgets/CookPrice.dart';
 import 'package:food_app_ga_coding/product/widget/TextWidgets/cookNameText.dart';
 import 'package:food_app_ga_coding/product/widget/TextWidgets/customElevatedButton.dart';
 import 'package:food_app_ga_coding/product/widget/TextWidgets/greyTittle.dart';
-import 'package:food_app_ga_coding/screens/main.dart';
+import 'package:food_app_ga_coding/main.dart';
 import 'package:food_app_ga_coding/viewmodel/FoodDetailsViewModel.dart';
 import '../product/widget/TextWidgets/addToCardIconButton.dart';
 
